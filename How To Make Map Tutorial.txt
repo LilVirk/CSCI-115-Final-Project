@@ -1,0 +1,60 @@
+Maps are stored as txt files. The following denotes the types of tiles.
+-------------
+0 = No Tile
+# = Wall
+/ = Empty Tile
+* = Dirt
+@ = Secret Passage (Needed for win condition)
+-------------
+
+To start include the following:
+[Name of map]
+W=[number for width]
+H=[number for height] *Width and Height must be on NEW lines*
+M{
+*map info*
+F{
+*position of friendly units*
+E{
+*position of enemy units*
+
+
+*EXAMPLE MAP*
+MAP ONE
+W=10
+H=10
+M{
+***///////
+*#*/##////
+***###////
+***/#///**
+/*/////*//
+//***/*///
+///****///
+///##/////
+//###/*///
+//*@#//**/
+F{
+0000000001
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+E{
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0010000000
+0000000000
+1000000000
+
+*NOTE map must contain a secret passage or it is impossible to complete*
