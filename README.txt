@@ -23,3 +23,5 @@ Matrix.h -> Holds 2D array of items with functions for manipulation. Used for ad
 PriorityQueue.h -> Queue with a min heap base, smallest value is highest priority. Used for shortest path alogorithm
 Vector.h -> From scratch vector class
 Source.cpp -> User control and initilization
+
+This software is under GNU GENERAL PUBLIC LICENSE, so feel free to work with it
