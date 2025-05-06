@@ -253,7 +253,7 @@ public:
 		}
 	}
 	void Dijkstra(int x1, int y1) {
-		// uses Dijkstra’s Shortest Path Algorithm to find the shortest path from two coordinates for the tile matrix // 
+		// uses Dijkstraï¿½s Shortest Path Algorithm to find the shortest path from two coordinates for the tile matrix // 
 		initDijkstras(x1,y1);
 		PriorityQueue<Tile> pq(size);
 		Tile currentTile = tileMatrix.getCell(x1, y1);

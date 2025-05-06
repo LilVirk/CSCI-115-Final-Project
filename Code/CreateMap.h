@@ -177,17 +177,39 @@ MapGraph processMapFile(std::string fileContents) {
 }
 
 MapGraph importMapFile(std::string fileName) {
-	// Reads an imported txt file converting it to a single string // 
-	std::string fileContents; 
-	std::ifstream file(fileName);
-	std::ostringstream oss;
-	oss << file.rdbuf();
-	fileContents = oss.str();
-	file.close();
-	if (fileContents.empty()) {
-		std::cerr << "\nERROR: FILE IS EMPTY";
-		return MapGraph();
+	// Try multiple path options to find the file
+	std::vector<std::string> pathsToTry;
+	
+	// Current directory
+	pathsToTry.push_back(fileName);
+	
+	// Maps subdirectory
+	pathsToTry.push_back("Maps/" + fileName);
+	
+	// Add extension if missing
+	if (fileName.find(".txt") == std::string::npos) {
+		pathsToTry.push_back(fileName + ".txt");
+		pathsToTry.push_back("Maps/" + fileName + ".txt");
 	}
-	return processMapFile(fileContents);
+	
+	// Try each path
+	for (const std::string& path : pathsToTry) {
+		std::string fileContents; 
+		std::ifstream file(path);
+		
+		if (file.is_open()) {
+			std::cout << "\nLoading map from: " << path;
+			std::ostringstream oss;
+			oss << file.rdbuf();
+			fileContents = oss.str();
+			file.close();
+			
+			if (!fileContents.empty()) {
+				return processMapFile(fileContents);
+			}
+		}
+	}
+	
+	std::cerr << "\nERROR: Could not find or open map file: " << fileName;
+	return MapGraph();
 }
-
