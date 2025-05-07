@@ -1,4 +1,4 @@
-Read "How To Make A Map Tutorial" to make a map
+
 
 Goal: Eliminate all enemy units (colored red) and have at least one of your units sit in a secret passage for one turn (enemies take turn before
 win condition so you can die before)
@@ -24,4 +24,4 @@ PriorityQueue.h -> Queue with a min heap base, smallest value is highest priorit
 Vector.h -> From scratch vector class
 Source.cpp -> User control and initilization
 
-This software is under GNU GENERAL PUBLIC LICENSE, so feel free to work with it
+
